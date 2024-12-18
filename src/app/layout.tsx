@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Box } from "lucide-react";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +29,18 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <div className="min-h-screen pt-8">
+          <div className="mb-4 max-w-3xl mx-auto">
+            <div className="flex justify-center items-center mb-8 gap-3 relative">
+              <Link href="/" className="absolute inset-0 w-full h-full" />
+              <Box size={32} />
+              <h1 className="text-2xl font-bold text-green-500 text-center">
+                Snippetbox
+              </h1>
+            </div>
+          </div>
+          {children}
+        </div>
       </body>
     </html>
   );
